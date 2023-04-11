@@ -14,12 +14,15 @@ const productSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    image:{
+      type:String
+    },
     categoryId: {
       type: mongoose.Types.ObjectId,
-      ref: "Category",
+      ref: "Categories",
     },
   },
   { timestamps: true, versionKey: false }
 );
 
-export default mongoose.model("Product", productSchema);
+export default mongoose.model("Products", productSchema);
