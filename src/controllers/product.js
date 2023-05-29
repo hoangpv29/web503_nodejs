@@ -4,7 +4,8 @@ import Category from "../models/category";
 
 export const getAll = async (req, res) => {
   try {
-    const products = await Product.find().populate("categoryId");
+    const products = await Product.find();
+    // .populate("categoryId")
     if (products.length === 0) {
       return res.json({
         message: "Không có sản phẩm nào",
@@ -22,9 +23,10 @@ export const getAll = async (req, res) => {
 };
 export const get = async function (req, res) {
   try {
-    const product = await Product.findById(req.params.id).populate(
-      "categoryId"
-    );
+    // .populate(
+    //   "categoryId"
+    // );
+    const product = await Product.findById(req.params.id)
 
     if (!product) {
       return res.json({
@@ -123,3 +125,14 @@ export const remove = async function (req, res) {
     });
   }
 };
+
+export const findNodesByName = async function (req,res) {
+  const name = req.query.name; 
+  const users = await Product.find({
+
+       name: { $gte: name } 
+
+  })
+  // const nodes = await Product.find({ name: { $eq: users } })
+  return users;
+}

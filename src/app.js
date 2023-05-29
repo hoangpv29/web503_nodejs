@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // router
-app.use("/api", router);
+app.use( router);
 
 // database config
 mongoose.connect(API_DB);

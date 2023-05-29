@@ -11,16 +11,16 @@ const productSchema = new mongoose.Schema(
       type: Number,
       require: true,
     },
-    description: {
+    desc: {
       type: String,
     },
     image:{
       type:String
     },
-    categoryId: {
-      type: mongoose.Types.ObjectId,
-      ref: "Categories",
-    },
+    // categoryId: {
+    //   type: mongoose.Types.ObjectId,
+    //   ref: "Categories",
+    // },
   },
   { timestamps: true, versionKey: false }
 );
